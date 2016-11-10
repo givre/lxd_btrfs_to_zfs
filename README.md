@@ -16,7 +16,10 @@ https://insights.ubuntu.com/2015/11/06/using-lxd-with-a-file-based-zfs-pool-on-u
 6. Enable and create your ZFS Zpool (do not mount the pool to /var/lib/lxd but somewhere else)
   > mkdir /lxd-pool
   > zfs set mountpoint=/lxd-zpool lxd-zpool
-7. Use the script to migrate data 
+7. Set lxc to use ZFS
+  > lxc config set storage.zfs_pool_name lxd-zpool
+  > reboot to be sure and double check with "lxc info"
+8. Only afeter that, you can use the script to migrate data 
 
 #IMPORTANT 
 Be sure that LXD is configured and see that you are not using BTRFS anymore.
