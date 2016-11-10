@@ -29,6 +29,9 @@ _CMD_START_CONTAINER="/opt/lxd_deploy/container/start_container.sh -n ${_CT}"  #
 
 cd ${_LXD_OLD_DIR}/containers
 
+# First create the parent pool 
+zfs create -o mountpoint=${_LXD_NEW_DIR}/containers ${_ZFS_POOL_NAME}/containers
+
 
 for _CT in `ls|grep -Ev '\.zfs|\.log'`; do
 
