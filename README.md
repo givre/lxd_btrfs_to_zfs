@@ -1,4 +1,4 @@
-# lxd_btrfs_to_zfs
+# lxd_btrfs_to_zfs (works with DIR too)
 Script to move container data from btrfs to zfs storage
 
 # How to move from BTRFS backend to ZFS backend
@@ -14,6 +14,8 @@ https://insights.ubuntu.com/2015/11/06/using-lxd-with-a-file-based-zfs-pool-on-u
 4. Create a new direcotry /var/lib/lxd 
 5. Copy lxd files from your btrfs path (/mnt/lxd) to you new lxd directory /var/lib/lxd . This will keep the lxd.db and containers info
 6. Enable and create your ZFS Zpool (do not mount the pool to /var/lib/lxd but somewhere else)
+  > mkdir /lxd-pool
+  > zfs set mountpoint=/lxd-zpool lxd-zpool
 7. Use the script to migrate data 
 
 #IMPORTANT 
